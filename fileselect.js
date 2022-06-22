@@ -135,6 +135,14 @@ $(document).ready(function () {
                 var prep = e.target.result;
                 //data = JSON.parse(JSON.stringify(prep));
                 data = jQuery.parseJSON(prep);
+
+                if (!("chats" in data) | data.chats == "undefined") {
+                    data = {
+                        "chats": {
+                            "list": [data]
+                        }
+                    }
+                }
                 $("#chatselect").css({
                     "display": "grid"
                 });
